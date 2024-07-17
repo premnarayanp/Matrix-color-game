@@ -1,23 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import './styles/App.css';
+import Box from './components/Box';
+import { useRef } from "react";
+
+const box = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+const boxOrders = [];
 
 function App() {
+  const boxRefs = useRef([]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {
+        box.map((boxIndex, index) => <Box boxIndex={boxIndex} boxRefs={boxRefs} boxOrders={boxOrders} />)
+      }
     </div>
   );
 }
